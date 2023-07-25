@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+</head>
+<body>
+    <h1>TODO LIST APP</h1>
+
+    <form method = "post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Add Todo Item">
+    </form> 
+
+    {% if tasks %}
+    <ol>
+        {% for task in tasks %}
+        <li>{{ task.content }}</li>
+        {% endfor %}
+    </ol>
+    {% else %}
+    <h4>No task entered yet, please start your ToDo list.</h4>
+    {% endif %} 
+</body>
+</html>
